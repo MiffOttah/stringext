@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MiffTheFox.StringExt")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Various string processing functions")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("MiffTheFox")]
 [assembly: AssemblyProduct("MiffTheFox.StringExt")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright © 2018 MiffTheFox")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
