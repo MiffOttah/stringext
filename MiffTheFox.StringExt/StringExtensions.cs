@@ -12,11 +12,21 @@ namespace MiffTheFox
         {
             if (str is null) throw new ArgumentNullException(nameof(str));
             int index = str.IndexOf(needle);
-            return Partition(str, index);
-            
+            return Partition(str, index, 1);
+
         }
 
-        public static StringPartitionResult Partition(this string str, int index)
+        public static StringPartitionResult Partition(this string str, string needle)
+        {
+            if (str is null) throw new ArgumentNullException(nameof(str));
+            if (needle is null) throw new ArgumentNullException(nameof(needle));
+            if (needle.Length == 0) throw new ArgumentException("Needle cannot be blank.", nameof(needle));
+
+            int index = str.IndexOf(needle);
+            return Partition(str, index, needle.Length);
+        }
+
+        public static StringPartitionResult Partition(this string str, int index, int partitionLength)
         {
             if (str is null) throw new ArgumentNullException(nameof(str));
             if (index < -1) throw new ArgumentOutOfRangeException(nameof(index), "Index must be greater than or equal to -1.");
@@ -28,7 +38,12 @@ namespace MiffTheFox
             }
             else
             {
-                return new StringPartitionResult { Head = str.Remove(index), Tail = str.Substring(index + 1) };
+                int tailStart = index + partitionLength;
+                return new StringPartitionResult
+                {
+                    Head = str.Remove(index),
+                    Tail = (tailStart < str.Length) ? str.Substring(index + partitionLength) : string.Empty
+                };
             }
         }
 
